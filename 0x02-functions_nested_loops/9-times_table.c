@@ -12,7 +12,8 @@ void times_table(void)
 		{
 			if (i * j <= 9)
 			{
-				_putchar(' ');
+				if (j != 0)
+					_putchar(' ');
 				_putchar((i * j) + '0');
 			}
 			else
