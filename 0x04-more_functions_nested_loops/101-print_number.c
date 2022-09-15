@@ -27,10 +27,7 @@ void print_number(int n)
 
 		while (nDigit > 0)
 		{
-			if (nDigit == 1)
-				_putchar(n + '0');
-			else
-				_putchar((n / _pow(10, nDigit - 1)) + '0');
+			_putchar((n / _pow(10, nDigit - 1)) + '0');
 			n %= _pow(10, nDigit - 1);
 			nDigit--;
 		}
