@@ -5,32 +5,32 @@
  */
 void print_number(int n)
 {
+	unsigned int absn = n < 0 ? -((unsigned int)(n)) : +((unsigned int)(n));
+	int nDigit, tmp;
+
 	if (n == 0)
 	{
 		_putchar('0');
+		return;
 	}
+
 	if (n < 0)
-	{
 		_putchar('-');
-		n = -n;
-	}
-	if (n > 0)
+
+	nDigit = 0;
+	tmp = absn;
+
+	while (tmp != 0)
 	{
-		int nDigit = 0;
-		int tmp = n;
+		tmp /= 10;
+		nDigit++;
+	}
 
-		while (tmp != 0)
-		{
-			tmp /= 10;
-			nDigit++;
-		}
-
-		while (nDigit > 0)
-		{
-			_putchar((n / _pow(10, nDigit - 1)) + '0');
-			n %= _pow(10, nDigit - 1);
-			nDigit--;
-		}
+	while (nDigit > 0)
+	{
+		_putchar((absn / _pow(10, nDigit - 1)) + '0');
+		absn %= _pow(10, nDigit - 1);
+		nDigit--;
 	}
 }
 
