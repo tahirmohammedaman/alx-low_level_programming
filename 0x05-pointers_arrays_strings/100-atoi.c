@@ -1,6 +1,5 @@
 #include <math.h>
 #include "main.h"
-
 /**
  * _atoi - converts a string to an integer
  * @s: input string
@@ -24,15 +23,14 @@ int _atoi(char *s)
 	}
 
 	start = i;
-	while (s[i] > '0' && s[i] > '9')
+	while (s[i] >= '0' && s[i] <= '9')
 		i++;
 	length = i - start;
 
-	for (i = start + length; i > start; i--)
-	{
-		int pow = 1;
 
-		num += _pow(s[i] - '0', pow++);
+	for (i = 0; i < length; i++)
+	{
+		num += (s[start + i] - '0') * _pow(10, length - (i + 1));
 	}
 
 	num *= sign;
